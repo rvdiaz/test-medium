@@ -7,17 +7,22 @@ import AdjustOutlinedIcon from '@mui/icons-material/AdjustOutlined';
 import { Box, Button } from '@mui/material';
 
 
-export const PaletteButton = () => {
+export const PaletteButton = (props) => {
+    const {disabled}=props;
   return (
     <Box
         sx={{
             border:'1px solid #F1F3F4',
             bgColor:'#FAFBFB',
-            padding:'8px'
+            padding:'8px',
+            width:'100%',
+            display:'flex',
+            justifyContent:'space-between'
         }}
     >
         <Box>
             <Button 
+                disabled={disabled}
                 variant="outlined" 
                 startIcon={<OpenInFullOutlinedIcon />}
                 sx={{
@@ -27,6 +32,7 @@ export const PaletteButton = () => {
                 Abrir
             </Button>
             <Button  
+                disabled={disabled}
                 variant="outlined" 
                 startIcon={<CalendarTodayOutlinedIcon />}
                 sx={{
@@ -36,6 +42,7 @@ export const PaletteButton = () => {
                 Hoy
             </Button>
             <Button 
+                disabled={disabled}
                 variant="outlined" 
                 startIcon={<LockOpenOutlinedIcon />}
                 sx={{
@@ -45,6 +52,7 @@ export const PaletteButton = () => {
                 Publico
             </Button>
             <Button 
+                disabled={disabled}
                 variant="outlined" 
                 startIcon={<OpenInFullOutlinedIcon />}
                 sx={{
@@ -54,6 +62,7 @@ export const PaletteButton = () => {
                 Ninguno
             </Button>
             <Button 
+                disabled={disabled}
                 variant="outlined" 
                 startIcon={<FormatColorResetOutlinedIcon />}
                 sx={{
@@ -63,6 +72,7 @@ export const PaletteButton = () => {
                 Abrir
             </Button>
             <Button 
+                disabled={disabled}
                 variant="outlined" 
                 startIcon={<AdjustOutlinedIcon />}
                 sx={{
@@ -70,6 +80,26 @@ export const PaletteButton = () => {
                 }}
                 >
                 Estimacion
+            </Button>
+        </Box>
+        <Box>
+            <Button 
+                disabled={disabled}
+                variant="contained" 
+                sx={{
+                    margin:'0 15px 0 2px'
+                }}
+                >
+                Cancel
+            </Button>
+            <Button 
+                disabled={disabled}
+                variant="outlined" 
+                sx={{
+                    margin:'0 15px 0 2px'
+                }}
+                >
+                OK
             </Button>
         </Box>
     </Box>
