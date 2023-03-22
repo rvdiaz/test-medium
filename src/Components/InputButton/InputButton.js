@@ -1,10 +1,13 @@
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import { Box, InputAdornment, InputBase } from '@mui/material'
 import React, { useState } from 'react'
+import {useDispatch} from 'react-redux'
+import { disabledActions } from '../../Store/DisabledComponents/DisabledComponents';
 
 export const InputButton = (props) => {
-  const {open,setopen,setdisabled}=props;
+  const {open,setopen}=props;
   const [value, setvalue] = useState('');
+  const dispatch=useDispatch();
 
   const handleOpen=()=>{
     if(!open){
@@ -13,11 +16,10 @@ export const InputButton = (props) => {
   }
   const handleChange=(e)=>{
     if(e.target.value!==''){
-      setdisabled(false);
+      dispatch(disabledActions.changeState(false));
     }
     else
-      setdisabled(true);
-
+      dispatch(disabledActions.changeState(true));
     setvalue(e.target.value);
   }
 

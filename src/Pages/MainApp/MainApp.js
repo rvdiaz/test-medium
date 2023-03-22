@@ -2,10 +2,11 @@ import { alpha, Avatar, Box, Button, ClickAwayListener, Container, IconButton } 
 import React, { useState } from 'react'
 import { InputButton } from '../../Components/InputButton/InputButton'
 import   { PaletteButton }   from '../../Components/PaletteButton/PaletteButton';
+import {useSelector} from 'react-redux';
 
 export const MainApp = () => {
     const [open, setopen] = useState(false);
-    const [disabled, setdisabled] = useState(true);
+    const disabled=useSelector(state=>state.uiDisabled.disabled);
 
     const handleOpenToggle=()=>{
         setopen(false);
@@ -32,12 +33,11 @@ export const MainApp = () => {
                 <InputButton 
                     open={open} 
                     setopen={setopen}
-                    setdisabled={setdisabled}
                 />
                 {open && 
                 <IconButton
                     disableRipple
-                    disabled={disabled}
+                   /*  disabled={disabled} */
                 >
                     <Avatar 
                         sx={{
@@ -49,7 +49,7 @@ export const MainApp = () => {
                 </IconButton>
                     }
                 </Box>
-                {open && <PaletteButton disabled={disabled}/>}
+                {open && <PaletteButton/>}
             </Box>
         </ClickAwayListener>  
     </Container>

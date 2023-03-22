@@ -5,10 +5,11 @@ import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import FormatColorResetOutlinedIcon from '@mui/icons-material/FormatColorResetOutlined';
 import AdjustOutlinedIcon from '@mui/icons-material/AdjustOutlined';
 import { Box, Button } from '@mui/material';
-
+import {useSelector} from 'react-redux'
 
 export const PaletteButton = (props) => {
-    const {disabled}=props;
+    const disabled=useSelector(state=>state.uiDisabled.disabled);
+
   return (
     <Box
         sx={{
@@ -24,7 +25,7 @@ export const PaletteButton = (props) => {
             <Button 
                 disabled={disabled}
                 variant="outlined" 
-                startIcon={<OpenInFullOutlinedIcon />}
+                startIcon={<OpenInFullOutlinedIcon/>}
                 sx={{
                     margin:'0 15px 0 2px'
                 }}
@@ -84,8 +85,7 @@ export const PaletteButton = (props) => {
         </Box>
         <Box>
             <Button 
-                disabled={disabled}
-                variant="contained" 
+                variant="outlined" 
                 sx={{
                     margin:'0 15px 0 2px'
                 }}
@@ -93,13 +93,12 @@ export const PaletteButton = (props) => {
                 Cancel
             </Button>
             <Button 
-                disabled={disabled}
-                variant="outlined" 
+                variant="contained"  
                 sx={{
                     margin:'0 15px 0 2px'
                 }}
                 >
-                OK
+                {disabled ? 'OK' : 'Agregar'}
             </Button>
         </Box>
     </Box>
